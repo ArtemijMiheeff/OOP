@@ -1,0 +1,20 @@
+#include <iostream> //static
+
+using namespace std;
+
+class Test
+{
+    static int t;
+    public:
+    static void out()
+    {
+        cout<<t;
+    }
+};
+int Test::t=10;
+int main()
+{
+    Test tst;
+    tst.out();
+    return 0;
+}
