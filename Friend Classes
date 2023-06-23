@@ -1,0 +1,25 @@
+#include <iostream> //Friend classes
+using namespace std;
+class MyClass
+{
+  private:
+   int myclass;
+  public:
+  MyClass(int a):myclass(a){};
+  friend class FriendClass;
+};
+class FriendClass
+{
+    public:
+     void Show(const MyClass & obj)
+     {
+         cout<<obj.myclass<<endl;
+   }
+};
+int main()
+{
+    MyClass mcls(15);
+    FriendClass fcls;
+    fcls.Show(mcls);
+    return 0;
+}
