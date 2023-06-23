@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+class Test  //class
+{
+  public:
+  int test; //field
+  Test(int a):test(a){};    //constructor
+  
+  void Show()   //function
+  {
+      cout << test << endl;
+  }
+};
+
+int Test::*ptr_pole = &Test::test;  //pointer on field
+void (Test::*ptr_method)() = &Test::Show;   //pointer on method
+int main()
+{
+    Test tst1(10);  //object
+    Test *ptr_tst1 = &tst1; //pointer on object
+    cout << ptr_tst1->*ptr_pole << endl;    //output pointer on object
+    (ptr_tst1->*ptr_method)();  //output pointer on method
+
+    return 0;
+}
