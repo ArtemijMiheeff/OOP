@@ -1,0 +1,29 @@
+#include <iostream> //constructors
+using namespace std;
+class Test
+{
+    private:
+    int test;
+    public:
+    Test(){cout<<"default"<<endl;}  //default
+    Test(int a):test(a){}  //transformations
+    Test(const Test & tst)  //copy
+    {
+        test = tst.test;
+        cout<<"Copy"<<endl;
+        
+    }
+    void Show()  //printout
+    {
+        cout<<test<<endl;;
+    }
+};
+int main()
+{
+    Test();
+    Test tst1(10);
+    tst1.Show();
+    Test tst2 = tst1;
+    tst2.Show();
+    return 0;
+}
