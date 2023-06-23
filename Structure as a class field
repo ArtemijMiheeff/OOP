@@ -1,0 +1,24 @@
+#include <iostream> //structure as a class field
+using namespace std;
+struct ST
+{
+    int a;
+    ST(int b)
+    {
+        a=b;
+    }
+};
+class Cl
+{
+    ST st;
+    public:
+    Cl(int a):st(a)
+    {
+        cout<<st.a;
+    };
+};
+int main()
+{
+    Cl cl(15);
+    return 0;
+}
