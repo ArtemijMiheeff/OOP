@@ -1,0 +1,17 @@
+#include <iostream> //function call
+using namespace std;
+class Test
+{
+    public:
+    int operator()(int x, int y)
+    {
+        return x+y;
+    }
+};
+int main()
+{
+    Test tst1;
+    int result = tst1(10,20);
+    cout<<result<<endl;
+    return 0;
+}
