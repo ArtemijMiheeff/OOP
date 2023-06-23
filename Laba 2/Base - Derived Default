@@ -3,40 +3,37 @@ using namespace std;
 
 class Base
 {
-private:
-  int base;
-public:
-Base(){};
-Base(int b):base(b){};
-virtual void Show()
-{
-  cout<<base<<endl;
-}
+    private:
+      int base;
+    public:
+        Base(){};
+        Base(int b):base(b){};
+        virtual void Show()
+        {
+          cout<<base<<endl;
+        }
 };
 
-class Derived:public Base
+class Derived : public Base
 {
-private:
-  int derived;
-public:
-Deriver():Base(){};
-Base(int b, int derived):base(b),derived(d){{};
-virtual void Show()
-{
-  cout<<base<<endl;
-}
+    private:
+      int derived;
+    public:
+        Derived():Base(){};
+        Derived(int b, int d):Base(b),derived(d){};
+        virtual void Show() override
+        {
+          cout<<derived<<endl;
+        }
 };
 
 int main()
 {
-  Base base(1);
-  Derived derived(1, 10);
+    Base base1(10);
+    Derived derived1(10, 100);
 
-  Base *ptr_base = &base;
-  Derived *ptr_der = &derived;
-
-  cout<<ptr_base->Show();
-  cout<<ptr_der->Show();
-
-  return 0;
+    base1.Show();
+    derived1.Show();
+    
+    return 0;
 }
