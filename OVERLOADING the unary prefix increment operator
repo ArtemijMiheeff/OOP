@@ -1,0 +1,26 @@
+OVERLOADING the unary prefix increment operator
+#include <iostream>
+using namespace std;
+class Test
+{
+    private:
+    int test;
+    public:
+    Test(int a):test(a){};
+    Test operator++()
+    {
+        ++test;
+        return *this;
+    }
+    void Show()
+    {
+        cout<<test;
+    }
+};
+int main()
+{
+    Test tst1(10);
+    ++tst1;
+    tst1.Show();
+    return 0;
+}
