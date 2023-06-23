@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+class Worker
+{
+  private:
+  char worker;
+  public:
+  virtual void GoWork()
+  {
+      cout<<"Worker go work"<<endl;
+  }
+};
+
+class Founder : public Worker
+{
+  private:
+  char founder;
+  public:
+  void GoWork() override
+  {
+      cout<<"Founder go work"<<endl;
+  }
+};
+
+class Cleaner : public Worker
+{
+  private:
+  char cleaner;
+  public:
+  void GoWork() override
+  {
+      cout<<"Cleaner go work"<<endl;
+  }
+};
+
+int main()
+{
+    cout<<"))))))))))))"<<endl;
+    Worker* ptr_worker;
+    
+    Founder fndr1;
+    Cleaner clnr1;
+    
+    Founder* fndr = &fndr1;
+    Cleaner* clnr = &clnr1;
+    
+    ptr_worker = fndr;
+    
+    fndr->GoWork();
+    
+    ptr_worker = clnr;
+    
+    clnr->GoWork();
+    cout<<"))))))))))))"<<endl;
+
+    return 0;
+}
