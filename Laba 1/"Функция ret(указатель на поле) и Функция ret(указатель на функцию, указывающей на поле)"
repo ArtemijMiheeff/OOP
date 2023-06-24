@@ -1,0 +1,30 @@
+#include <iostream>  //Функция ret(указатель на поле) и Функция ret(указатель на функцию, указывающей на поле)
+
+using namespace std;
+
+class Test
+{
+public:
+int test;
+Test (int j):test(j){};
+};
+
+int * ptr_pole(Test &a)
+{
+int *ptr_test= &a.test;
+return ptr_test;
+}
+
+int * ptr_function (int & function)
+{
+int * ptr_fun = &function;
+return ptr_fun;
+}
+
+int main()
+{
+Test obj1(10);
+cout<<ptr_pole(obj1)<<endl; // если поставить *pole(obj1), то выведет 10
+cout<<ptr_function(*ptr_pole(obj1)); //аналогично перед ukaz поставить * и выведет 10
+return 0;
+}
