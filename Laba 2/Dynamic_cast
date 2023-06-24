@@ -1,0 +1,56 @@
+#include <iostream>
+
+using namespace std;
+
+class Worker
+{
+  private:
+  char worker;
+  public:
+  virtual void GoWork()
+  {
+      cout<<"Worker go work"<<endl;
+  }
+};
+
+class Founder : public Worker
+{
+  private:
+  char founder;
+  public:
+  void GoWork() override
+  {
+      cout<<"Founder go work"<<endl;
+  }
+};
+
+class Cleaner : public Worker
+{
+  private:
+  char cleaner;
+  public:
+  void GoWork() override
+  {
+      cout<<"Cleaner go work"<<endl;
+  }
+};
+
+int main()
+{
+    cout<<"1))))))))))))"<<endl;
+    Worker *ptr_worker = new Founder;
+    Worker *ptr_worker1 = new Cleaner;
+    Founder* fndr = dynamic_cast<Founder*>(ptr_worker);
+    Cleaner* clnr = dynamic_cast<Cleaner*>(ptr_worker1);
+    
+    //ptr_worker = fndr;
+    
+    fndr->GoWork();
+    
+    //ptr_worker = clnr;
+    
+    clnr->GoWork();
+    cout<<"10))))))))))))"<<endl;
+
+    return 0;
+}
